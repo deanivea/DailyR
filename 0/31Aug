@@ -1,0 +1,7 @@
+#Starting all over
+> mystring <- "bora bora"
+> print(mystring)
+[1] "bora bora"
+> #Now comments on different lines
+> if(FALSE) {"this is an important part of the research because I learned how to multi-line comment"
++     }
