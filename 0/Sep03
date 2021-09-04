@@ -1,0 +1,28 @@
+# Getting the current directory 
+> getwd()
+[1] "C:/Users/OS/Documents/2"
+
+# Listing objects in my local workspace
+> ls()
+character(0)
+
+# Assigning a variable
+> x <- 9
+
+#Listing objects
+> ls()
+[1] "x"
+
+# Listing Files in the Workspace
+> list.files()
+[1] "2.Rproj"
+
+# Determining arguments to list.files()
+> args(list.files)
+function (path = ".", pattern = NULL, all.files = FALSE, 
+    full.names = FALSE, recursive = FALSE, ignore.case = FALSE, 
+    include.dirs = FALSE, no.. = FALSE) 
+NULL
+
+# Assign the value of the current working directory to a variable called "old.dir".
+> ls() -> old.dir
