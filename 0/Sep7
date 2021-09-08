@@ -1,0 +1,29 @@
+#Opening Data "cars"
+> data(cars)
+#Looking for Help Page for "cars"
+> ?cars
+#Displaying the firsts elements of data
+> head(cars)
+speed dist
+1     4    2
+2     4   10
+3     7    4
+4     7   22
+5     8   16
+6     9   10
+#Displaying the final elements of data
+> tail(cars)
+speed dist
+45    23   54
+46    24   70
+47    24   92
+48    24   93
+49    24  120
+50    25   85
+#Ploting and adding details to plot with data "cars"
+> plot(cars)
+> plot(x = cars$speed, y = cars$dist)
+> plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+> plot(cars, main = "My Plot")
+> plot(cars, sub = "My Plot Subtitle")
+> plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance", main = "My Plot", sub = "My Plot Subtitle", col = 2, xlim = c(10, 15), pch = 2)
