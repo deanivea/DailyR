@@ -1,0 +1,15 @@
+#Understanding better the logical operations in R
+> TRUE == TRUE
+[1] TRUE
+> (FALSE == TRUE) == FALSE
+[1] TRUE
+> 6 == 7
+[1] FALSE
+#Which of the following evaluates to FALSE?
+  
+  1: 9 < 10
+2: 7 != 8
+3: !(0 >= -1)
+4: !FALSE
+
+Selection: 1
