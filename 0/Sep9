@@ -1,0 +1,13 @@
+#Testing the AND operator
+> FALSE & FALSE
+[1] FALSE
+#Vector operations
+> TRUE & c(TRUE, FALSE, FALSE)
+[1]  TRUE FALSE FALSE
+> TRUE && c(TRUE, FALSE, FALSE)
+[1] TRUE
+#Vector operations with OR operator
+TRUE | c(TRUE, FALSE, FALSE)
+[1] TRUE TRUE TRUE
+> TRUE || c(TRUE, FALSE, FALSE)
+[1] TRUE
