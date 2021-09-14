@@ -1,0 +1,18 @@
+#lesson on how to build a basic stacked area with ggplot2
+> library(ggplot2)
+> library(dplyr)
+#It is necessar to define 3 columns: x axis, y axis, and group
+> time <- as.numeric(rep(seq(1,7), each = 7))
+> value <- runif(49, 10, 100)
+> group <- rep(LETTERS[1:7], times = 7)
+> data <- data.frame(time, value, group)
+> ggplot(data, aes(x = time, y = value, fill = group)) + geom_area()
+#Trying to apply different data 
+> data ("diamonds")
+> force(diamonds)
+> carat <- as.numeric(rep(seq(1, 10), each = 10))
+> price <- runif(100, 334, 337)
+> group <- rep(LETTERS[1:10], times = 10)
+> data <- data.frame(carat, price, group)
+> ggplot(data, aes(x = carat, y = price, fill = group)) + geom_area()
+#Did not work properly. I will retry soon
