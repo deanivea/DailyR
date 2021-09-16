@@ -1,0 +1,9 @@
+# Example data
+x <- LETTERS[1:20]
+y <- paste0("var", seq(1,20))
+data <- expand.grid(X=x, Y=y)
+data$Z <- runif(400, 0, 5)
+
+# Heatmap 
+ggplot(data, aes(X, Y, fill= Z)) + 
+  geom_tile()
