@@ -1,0 +1,21 @@
+#Starting Learning the concept of regression toward the mean
+
+#This is a module from Swirl courses ("Regression Models: The Basics of Regression Modeling in R", Introduction). 
+
+#Data is from John Verzani's website, http://wiener.math.csi.cuny.edu/UsingR/
+
+#Or install Swirl and choose the correct module to download data
+> plot(child ~ parent, galton)
+
+#Using function "jutter" on the children's heights to spread out the data, to stimulate the measurement errors and make high frequency heights more visible.
+> plot(jitter(child,4) ~ parent, galton)
+
+#Dependent variable (children's heights) and independent variable (parent's heights)
+> regrline <- lm(child ~ parent, galton)
+> abline(regrline, lwd = 3, col = 'red')
+
+#Examining the Galton regression line
+> summary(regrline)
+
+#The slope of the regression line is: .64629
+#The standard error of the slope is: .04114
