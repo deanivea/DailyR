@@ -1,0 +1,40 @@
+#Lesson 2 of the Regression Models Course on Swirl: Residuals
+#This Daily R lesson is related to Sep20
+#The data used is still available at swirl or John Verzani's website, http://wiener.math.csi.cuny.edu/UsingR/
+#Regenerate regression line and call it "fit"
+> fit <- lm(child ~ parent, galton)
+
+#Using the function "summary" to see a display of the regression data
+> summary(fit)
+
+#Checking the mean of fit$residuals, to see if it's close to 0
+> mean(fit$residuals)
+
+#Checking the correlation between the residuals and the predictors, to see if is it close to 0
+> cov(fit$residuals, galton$parent)
+
+#Two R functions: "est" calculates a child's heights using the line defined by the two parameters (slope and intercept), and the parent's heights in the galton data as x-coordinates
+#The function "sqe" calculates the sum of the squared residuals, the differences between the actual children's heights and the estimated heights specified by the line defined by the given parameters
+#When varying the slope and intercept values of the regression line (fit$coef), the resulting squared residuals are approximatel equal to the sum of two sums os squares
+> sqe(ols.slope+sl,ols.intercept+ic) == deviance(fit) + sum(est(sl,ic)ˆ2 )
+
+#Equivalently
+> sqe(ols.slope+sl,ols.intercept+ic) == sqe(ols.slope, ols.intercept) + sum(est(sl,ic)ˆ2 )
+
+#Extracting the intercept from fit$coef[1], and namign it "ols.ic"
+> ols.ic <- fit$coef[1]
+
+#Extracting slope from fit$coef[2]
+> ols.slope <- fit$coef[2]
+
+#Variation of children's heights and naming it varChild
+> varChild <- var(galton$child)
+
+#Variation in fit$residuals, and naming it varRes
+> varRes <- var(fit$residuals)
+
+#Calculating the variance in the estimates and naming it "varEst"
+>varEst <- var(est(ols.slope, ols.ic))
+
+#Comparing varChild and the sum of varRes and varEst
+> all.equal(varChild,varEst+varRes)
