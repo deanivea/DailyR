@@ -1,0 +1,43 @@
+#Today I will try to solve a problem I'm having with R Studio. I had to restore my computer on the weekend, and since then R is not working properly
+#Every time I try to excecute package swirl(), for example, the following message appears: "Error in swirl() : could not find function "swirl"
+#First I will try to find Swirl at the installed packages list
+> installed.packages()
+
+#Swirl is not on the list
+#Try to install swirl again
+> install.packages("swirl")
+package ‘swirl’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+C:\Users\OS\AppData\Local\Temp\Rtmp4ENRDN\downloaded_packages
+
+#I recieved the advice os trying function .libpaths to change the directory
+> .libPaths("C:\Users\OS\Documents\R\win-library\4.1")
+Error: '\U' used without hex digits in character string starting ""C:\U"
+
+> swirl()
+Error in swirl() : could not find function "swirl"
+
+#I googled how to solve a problem when the message "Error: '\U' used without hex digits in character string starting ""C:\U""
+#One way to solve this problem would be type double backlash 
+
+> .libPaths("C:\\Users\\OS\\Documents\\R\\win-library\\4.1")
+> .libPaths()
+[1] "C:/Users/OS/Documents/R/win-library/4.1" "C:/Program Files/R/R-4.1.1/library" 
+
+#test function swirl()again
+> swirl()
+Error in swirl() : could not find function "swirl"
+
+#I googled the message "Error in swirl() : could not find function "swirl"
+#At "https://github.com/swirldev/swirl/issues/499" I found out that other people had the same issue, and proceeded as the following:
+> install.packages("swirl", dependencies = TRUE)
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+#After that I try to run swirl again
+> library(swirl)
+> swirl()
+
+#Success!! The program is running fine again 
