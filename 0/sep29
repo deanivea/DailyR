@@ -1,0 +1,32 @@
+#Today I will take the course "Exploratory Data Analysis: The basics of exploring data in R" of Swirl
+
+> data("cars")
+> head(cars)
+
+#Using command "with" to plot with two arguments
+> with(cars, plot(speed, dist))
+
+#Now it's possible to see the relationship between the two variables, speed and distance. 
+#Using function "text" with mean(cars$speed) on the x coordinates, and max(cars$dist), and the text "Deanivea Plot" at the string
+> text(mean(cars$speed),max(cars$dist),"Deanivea Plot!")
+
+#Second plot system, for that I have to install the Lattice System 
+> install.packages(lattice)
+> data(state)
+> head(state)
+
+#Running the command table with the argument state$region to see how many categories there are and how many states are in each
+> table(state$region)
+
+#using the lattice command xyplot to see how life expectancy varies with income in each of the four regions
+> xyplot(Life.Exp ~ Income | region, data = state, layout = c(4, 1))
+
+#The south of the US has the shortest life expectancy
+
+#Plotting with ggplot2
+> install.packages("ggplot2")
+> data("mpg")
+> head(mpg)
+> dim(mpg)
+> table(mpg$model)
+> qplot(displ, hwy, data = mpg)
