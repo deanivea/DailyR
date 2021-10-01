@@ -1,0 +1,23 @@
+#Today I will learn how to use the Lattice Plotting System
+
+> installpackages(ggplot2)
+> install.packages(lattice)
+> data("airquality")
+> head(airquality)
+> xyplot(Ozone~Wind, data = airquality)
+> xyplot(Ozone ~ Wind, data = airquality, pch=8, col="red", main="Big Apple Data")
+
+#Generating a multipanel plot using lattice command
+
+> xyplot(Ozone ~ Wind | as.factor(Month), data = airquality, layout=c(5,1))
+> xyplot(Ozone ~ Wind | Month, data = airquality, layout=c(5,1))
+> xyplot(Ozone~Wind,data=airquality)
+> p <- xyplot(Ozone~Wind,data=airquality)
+> p
+> names(p)
+
+#Using the formula mynames[myfull] to see which entries of p are not Null
+> mynames[myfull]
+> p[["x.limits"]]
+
+#Continues on tomorrow's Dail R
