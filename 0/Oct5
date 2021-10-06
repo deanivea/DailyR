@@ -1,0 +1,35 @@
+#Today I will try to create a Recursive Function to make the Fibonacci Sequence
+#The fibonacci sequence starts with 0 and 1, the other terms are the sum from the previous terms
+#I found a code on website "https://www.datamentor.io/r-programming/examples/fibonacci-recursion/"
+#The challenge will be understand the code and try to run properly on my RStudio, because it wasn't working at first
+
+> if(n <= 1)
+#Error because I still haven't assigned the N term
+# the nth term is the sum of (n-1)th and (n-2)th term
+> recurse_fibonacci <- function(n)
+>if(n <= 1), return(n)
+} else {
+  return(recurse_fibonacci(n-1) + recurse_fibonacci(n-2))
+}
+#Error on the coding
+
+> recurse_fibonacci <- function(n)
+  + if(n <= 1) {return(n)}
+
+#Established function recurse_fibonacci
+
+> }else {
+> return(recurse_fibonacci(n-1) + recurse_fibonacci(n-2))
+
+#I closed all the {} and coded at the same line
+>recurse_fibonacci <- function(n){if(n <= 1) {return(n)} else {return(recurse_fibonacci(n-1) + recurse_fibonacci(n-2))}}
+
+#Now, the second part consists in telling the program when to stop
+nterms = as.integer(readline(prompt="How many terms? "))
+
+#The number has to be positive and not fraccioned
+>if(nterms <= 0) {print("Plese enter a positive integer")} else {print("Fibonacci sequence:")for(i in 0:(nterms-1)) {print(recurse_fibonacci(i))}}
+
+#I don't know why this line is not working properly
+#Also, I can't test the end of the coding yet
+#Tomorrow I will try to fiz this problem at daily R
