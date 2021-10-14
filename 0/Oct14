@@ -1,0 +1,47 @@
+#Tutorial on how to do Linear Regression in R (StatQuest)
+#Create the dataframe
+> mouse.data <- data.frame()
+> mouse.data <- data.frame(weight = c(0.9, 1.8, 2.4, 3.5, 3.9, 4.4, 5.1, 5.6, 6.3), size = c(1.4, 2.6, 1.0, 3.7, 5.5, 3.2, 3.0, 4.9, 6.3))
+> mouse.data
+weight size
+1    0.9  1.4
+2    1.8  2.6
+3    2.4  1.0
+4    3.5  3.7
+5    3.9  5.5
+6    4.4  3.2
+7    5.1  3.0
+8    5.6  4.9
+9    6.3  6.3
+> plot(mouse.data$weight, mouse.data$size)
+> mouse.regression <- lm(size ~ weight, data = mouse.data)
+> #Size will be the y-values, and weight the x-values
+  > #y-values = y-intercept + slope.x-values and size = y-intercept + slope.weight
+  > summary(mouse.regression)
+
+Call:
+  lm(formula = size ~ weight, data = mouse.data)
+
+Residuals:
+  Min      1Q  Median      3Q     Max 
+-1.5482 -0.8037  0.1186  0.6186  1.8852 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)   0.5813     0.9647   0.603   0.5658  
+weight        0.7778     0.2334   3.332   0.0126 *
+  ---
+  Signif. codes:  
+  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.19 on 7 degrees of freedom
+Multiple R-squared:  0.6133,	Adjusted R-squared:  0.558 
+F-statistic:  11.1 on 1 and 7 DF,  p-value: 0.01256
+
+> #The first line just prints out the original call to the lm() function
+  > #"Residuals" is a summary of the residuals (the distance from the data to the fitted line). Ideally, they should be symmetrically distributed around the line.
+  > #The "coefficients" section tells us about the least-squares estimates for the fitted line   size = y-intercept + slope.weight
+  > #The standard error of the estimates and the "t value" are both provided to show how the p-values were calculated
+  > #Lastly, the "Pr(>|t|)" are the p-values for the estimated parameters. Generally speaking, we are not interested in the intercept, so it doesn't matter what its p-value is. However, we want the p-value for "weight" to be <0.05. That is, we want it to be statistically insignificant.
+  #A significant p-value for weight means that it will give us a reliable guess of mouse size.
+  > abline(mouse.regression, col = "blue")
