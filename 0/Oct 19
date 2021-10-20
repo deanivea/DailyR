@@ -1,0 +1,16 @@
+#Trying to find a Brazilian dataset to work with. Also, my objective today is learn how to work with different datasets
+#Found a list of Brazilian counties on 'http://blog.mds.gov.br/redesuas/lista-de-municipios-brasileiros/'
+#There are an Excel plan and a CSV format plan, wathcing an youtube video ('https://www.youtube.com/watch?v=_I-1EJ58rmk&ab_channel=RanywayzRandom') I learned that there is a way to import excel datasets bu the button 'Import Dataset'
+#It did not work. Maybe the directory is wrong
+> setwd("C:/Users/OS/Downloads")
+#I saved the CVS version on my computer and I will use function 'read.csv' to read it. Also I will assign the name "municipios" to the dataset, this means "county" in portuguese
+> municipios <- read.csv('Brasil.CSV')
+> View(municipios)
+> summary(municipios)
+#This table shows the region, population, size and the capital of each county in Brazil.
+> summary.data.frame(municipios)
+#The original table had 10 columns, but this CSV version merged all the columns. I would like to find out how to import a version more similar to the original one
+> head(municipios)
+> dim(municipios)
+#I retied to add an excel database, but failed, fuction bellow
+> read_excel("C:\Users\OS\Documents\Downloads\\municipios.xlsx")
