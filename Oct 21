@@ -1,0 +1,19 @@
+#Today I'm starting a course on EDX called "Startistics and R" from HarvardX
+#This Daily R is related with the previous one, which I tried to import Data from a CSV file
+#I took the file from Genomicsclass/dagdata/inst/extdata
+#The name of the file is femaleMiceWeights.csv, I downloaded it raw and saved in the same directory of this project
+#I also downloaded femaleControlsPopulation and mice_pheno
+> ?read.csv
+> dat <- read.csv("femaleMiceWeights.csv")
+
+#Installing the dplyr package and exploring the file
+> install.packages("dplyr")
+> library(dplyr)
+> View(dat)
+> controls <- filter(dat, Diet== "chow")
+> View(controls)
+> select(controls, Bodyweight)
+> controls <- select(controls, Bodyweight)
+> unlist(controls)
+
+controls <- filter(dat, Diet== "chow") %>% select(Bodyweights) %>% unlist
